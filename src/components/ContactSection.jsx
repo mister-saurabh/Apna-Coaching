@@ -1,7 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Send, CheckCircle, Phone, MapPin, MessageSquare, Loader } from 'lucide-react'
-import API from '../utils/api'
+import { Send, CheckCircle, Phone, MapPin, Loader } from 'lucide-react'
 
 const COURSES = [
   'Foundation (NEET/IIT-JEE/Olympiads)',
@@ -16,6 +15,18 @@ export default function ContactSection() {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
 
+  useEffect(() => {
+    const handleSelectCourse = (e) => {
+      const selectedTitle = e.detail;
+      const matchedCourse = COURSES.find(c => c.toLowerCase().includes(selectedTitle.toLowerCase()));
+      if (matchedCourse) {
+        setForm(p => ({ ...p, course: matchedCourse }));
+      }
+    };
+    window.addEventListener('selectCourse', handleSelectCourse);
+    return () => window.removeEventListener('selectCourse', handleSelectCourse);
+  }, []);
+
   const handleChange = e => setForm(p => ({ ...p, [e.target.name]: e.target.value }))
 
   const handleSubmit = async e => {
@@ -23,11 +34,12 @@ export default function ContactSection() {
     setLoading(true)
     setError('')
     try {
-      await API.post('/leads', form)
+      const text = `Hi, I am interested in enrolling at 3TPNA Coaching Classes.\n\n*Name:* ${form.name}\n*Phone:* ${form.phone}\n*Course:* ${form.course}${form.message ? `\n*Message:* ${form.message}` : ''}`;
+      window.open(`https://wa.me/918542093421?text=${encodeURIComponent(text)}`, '_blank');
       setSuccess(true)
       setForm({ name: '', phone: '', course: '', message: '' })
     } catch (err) {
-      setError(err.response?.data?.message || 'Something went wrong. Please try again.')
+      setError('Something went wrong. Please try again.')
     } finally {
       setLoading(false)
     }

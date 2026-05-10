@@ -47,12 +47,6 @@ export default function Footer() {
                   </button>
                 </li>
               ))}
-              <li>
-                <a href="/admin/login" className="text-slate-500 hover:text-gold-400 font-body text-sm transition-colors duration-200 flex items-center gap-2 group">
-                  <span className="w-1 h-1 rounded-full bg-gold-500/40 group-hover:bg-gold-400 transition-colors" />
-                  Admin Panel
-                </a>
-              </li>
             </ul>
           </div>
 

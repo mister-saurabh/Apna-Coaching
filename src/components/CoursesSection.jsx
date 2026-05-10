@@ -71,6 +71,7 @@ function CourseCard({ course, index }) {
   }
 
   const scrollToContact = () => {
+    window.dispatchEvent(new CustomEvent('selectCourse', { detail: course.title }))
     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
   }
 

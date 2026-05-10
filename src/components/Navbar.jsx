@@ -41,10 +41,8 @@ export default function Navbar() {
           onClick={() => scrollTo('#home')}
         >
           <div className="relative">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center shadow-lg shadow-gold-500/30">
-              <GraduationCap size={20} className="text-navy-900" />
-            </div>
-            <div className="absolute inset-0 rounded-full bg-gold-400/30 animate-ping" />
+            <img src="/logo.jpg" alt="3TPNA Logo" className="w-11 h-11 rounded-full object-cover shadow-lg shadow-gold-500/30 border-2 border-gold-400/50" />
+            <div className="absolute inset-0 rounded-full bg-gold-400/20 animate-ping pointer-events-none" />
           </div>
           <div>
             <div className="font-display font-black text-lg leading-none gold-text">3TPNA</div>

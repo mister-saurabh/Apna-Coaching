@@ -15,8 +15,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center">
-                <GraduationCap size={20} className="text-navy-900" />
+              <div className="relative group p-[2px] rounded-full flex items-center justify-center transition-transform hover:scale-110 duration-500">
+                <div className="absolute inset-0 bg-[conic-gradient(from_0deg_at_50%_50%,#e8a800_0%,#fff_25%,#05103a_50%,#fff_75%,#e8a800_100%)] animate-[spin_4s_linear_infinite] rounded-full" />
+                <div className="relative w-10 h-10 bg-white rounded-full p-[2px] z-10 overflow-hidden shadow-inner shadow-black/20">
+                  <img src="/logo.jpg" alt="3TPNA Logo" className="w-full h-full rounded-full object-cover" />
+                </div>
               </div>
               <div>
                 <div className="font-display font-black text-lg gold-text leading-none">3TPNA</div>

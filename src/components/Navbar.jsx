@@ -40,9 +40,15 @@ export default function Navbar() {
           whileHover={{ scale: 1.02 }}
           onClick={() => scrollTo('#home')}
         >
-          <div className="relative">
-            <img src="/logo.jpg" alt="3TPNA Logo" className="w-11 h-11 rounded-full object-cover shadow-lg shadow-gold-500/30 border-2 border-gold-400/50" />
-            <div className="absolute inset-0 rounded-full bg-gold-400/20 animate-ping pointer-events-none" />
+          <div className="relative group p-[3px] rounded-full flex items-center justify-center transition-transform hover:scale-110 duration-500">
+            {/* Rotating luxurious gradient background */}
+            <div className="absolute inset-0 bg-[conic-gradient(from_0deg_at_50%_50%,#e8a800_0%,#fff_25%,#05103a_50%,#fff_75%,#e8a800_100%)] animate-[spin_4s_linear_infinite] rounded-full" />
+            {/* Inner white shell to pad the logo */}
+            <div className="relative w-12 h-12 bg-white rounded-full p-[2px] z-10 overflow-hidden shadow-inner shadow-black/20">
+              <img src="/logo.jpg" alt="3TPNA Logo" className="w-full h-full rounded-full object-cover" />
+            </div>
+            {/* Outer Glow */}
+            <div className="absolute inset-0 rounded-full bg-gold-400/20 blur-md group-hover:bg-gold-400/50 group-hover:blur-xl transition-all duration-700 pointer-events-none" />
           </div>
           <div>
             <div className="font-display font-black text-lg leading-none gold-text">3TPNA</div>

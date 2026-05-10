@@ -20,8 +20,14 @@ export default function Navbar() {
   }, [])
 
   const scrollTo = (href) => {
+    const isOpen = open
     setOpen(false)
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    // Delay scroll if mobile menu was open, so the exit animation
+    // doesn't interfere with scrollIntoView target calculation
+    const delay = isOpen ? 350 : 0
+    setTimeout(() => {
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    }, delay)
   }
 
   return (

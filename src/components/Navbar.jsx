@@ -6,6 +6,8 @@ const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Courses', href: '#courses' },
   { label: 'About', href: '#about' },
+  { label: 'Wall of Fame', href: '#achievers' },
+  { label: 'Gallery', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ]
 
